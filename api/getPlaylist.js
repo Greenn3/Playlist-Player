@@ -1,4 +1,4 @@
-// api/getPlaylistId.js
+
 
 export default async function handler(req, res) {
     const { channelId } = req.query;
@@ -26,3 +26,6 @@ export default async function handler(req, res) {
     }
   }
   
+// export default function handler(req, res) {
+//   res.status(200).json({ message: "This works!" });
+// }

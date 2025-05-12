@@ -8,11 +8,14 @@ async function getUploadsPlaylistId() {
   }
 
   try {
-    const res = await fetch(`/api/getPlaylistId?channelId=${channelId}`);
+   const res = await fetch(`/api/getPlaylist?channelId=${channelId}`);
+      // const res = await fetch(`/api/getPlaylist`);
     const data = await res.json();
 
     if (data.playlistId) {
-      output.textContent = `✅ Uploads Playlist ID:\n${data.playlistId}`;
+      const playlistUrl = `https://www.youtube.com/playlist?list=${data.playlistId}`;
+      output.innerHTML = `✅ Uploads Playlist ID: <a href="${playlistUrl}" target="_blank">${playlistUrl}</a>`;
+      
     } else {
       output.textContent = `⚠️ Error: ${data.error}`;
     }
